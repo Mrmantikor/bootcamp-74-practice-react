@@ -1,8 +1,8 @@
-
+import s from './Section.module.css';
 
 const Section = ({children}) => {
   return (
-    <div>{children}</div>
+    <section className={s.section}>{children}</section>
   )
 }
 

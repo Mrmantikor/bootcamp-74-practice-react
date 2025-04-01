@@ -15,6 +15,7 @@ function App() {
           <Heading text="Blog Card" tag="h1" bottom />
           <BlogCard {...article} />
           <Heading text="Statistics" bottom mTop  />
+          <Statistics stats={stats} text="Main Statistics"/>
           <Statistics stats={stats} />
           <CryptoHistory transactions={transactions} />
         </Container>
