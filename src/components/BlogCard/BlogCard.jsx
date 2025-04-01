@@ -1,3 +1,5 @@
+import s from "./BlogCard.module.css"
+import {formatDistance} from "../../helpers/format-date.js"
 const BlogCard = ({
   name,
   postedAt,
@@ -8,21 +10,23 @@ const BlogCard = ({
   avatar,
 }) => {
   return (
-    <div>
-      <div>
-        <img src={poster} alt={tag} />
+    <div className={s.card}>
+      <div className={s.cardHeader}>
+        <img  className={s.cardPoster}  src={poster} alt={tag} />
       </div>
-      <div>
-        <span>{tag}</span>
-        <h2>{title}</h2>
-        <p>{description}</p>
+      <div className={s.cardBody}>
+        <span className={s.tag}>{tag}</span>
+        <h2 className={s.cardTitle}>{title}</h2>
+        <p className={s.cardText}>{description}</p>
       </div>
-      <div>
-        <div>
-          <img src={avatar} alt={name} />
+      <div className={s.cardFooter}>
+        <div className={s.userBox}>
+          <img  className={s.avatar} src={avatar} alt={name} />
         </div>
-        <h3>{name}</h3>
-        <span>{postedAt}</span>
+          <div>
+              <h3 title={s.userName}>{name}</h3>
+              <small className={s.date}>{formatDistance(postedAt)}</small>
+          </div>
       </div>
     </div>
   );
