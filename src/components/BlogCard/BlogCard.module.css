@@ -68,3 +68,8 @@
 .date {
     color: var(--color-gray);
 }
+
+.cardContainer{
+    width: 500px;
+    background-color: red;
+}
