@@ -9,6 +9,9 @@ import article from "./data/article.json";
 import stats from "./data/stats.json";
 import transactions from "./data/transactions.json";
 import forbeslist from "./data/forbeslist.json";
+import Options from "./components/Options/Options";
+
+const options = ["one", "two", "three", "four", "five"];
 
 function App() {
   return (
@@ -24,6 +27,7 @@ function App() {
           <CryptoHistory transactions={transactions} />
           <Heading text="Forbes List" bottom mTop variant="info" />
           <ForbesList forbeslist={forbeslist} />
+          <Options options={options} />
         </Container>
       </Section>
     </>

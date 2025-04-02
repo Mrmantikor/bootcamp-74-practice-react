@@ -1,0 +1,32 @@
+.list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+}
+
+.one {
+  background-color: #ff6ec7;
+}
+
+.two {
+  background-color: #00ffff;
+}
+
+.three {
+  background-color: #39ff14;
+}
+
+.four {
+  background-color: #ff5f1f;
+}
+
+.five {
+  background-color: #b026ff;
+}
