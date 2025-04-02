@@ -12,11 +12,12 @@ function App() {
     <>
       <Section>
         <Container>
-          <Heading text="Blog Card" tag="h1" bottom />
+          <Heading text="Blog Card" tag="h1" bottom variant="success" />
           <BlogCard {...article} />
-          <Heading text="Statistics" bottom mTop  />
-          <Statistics stats={stats} text="Main Statistics"/>
+          <Heading text="Statistics" bottom mTop variant="info" />
+          <Statistics stats={stats} text="Main Statistics" />
           <Statistics stats={stats} />
+          <Heading text="Crypto History" bottom mTop variant="error" />
           <CryptoHistory transactions={transactions} />
         </Container>
       </Section>

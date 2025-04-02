@@ -1,9 +1,19 @@
-import s from "./Heading.module.css"
-import clsx from 'clsx';
+import s from "./Heading.module.css";
+import clsx from "clsx";
 
-const Heading = ({ text, tag = "h2" ,bottom, mTop}) => {
+const Heading = ({ text, tag = "h2", bottom, mTop, variant }) => {
   const Tag = tag;
-  return <Tag className={clsx(s.title ,{[s.bottom ]: bottom,[s.top]: mTop})}>{text}</Tag>;
+  return (
+    <Tag
+      className={clsx(s.title, {
+        [s.bottom]: bottom,
+        [s.top]: mTop,
+        [s[variant]]: variant,
+      })}
+    >
+      {text}
+    </Tag>
+  );
 };
 
 export default Heading;
