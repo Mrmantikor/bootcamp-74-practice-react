@@ -32,7 +32,7 @@ function App() {
           <Heading text="Options" bottom mTop variant="info" />
           <Options options={options} />
           <Heading text="Game" bottom mTop variant="info" />
-          <Game question={question} />
+          <Game {...question} />
         </Container>
       </Section>
     </>

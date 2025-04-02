@@ -1,6 +1,6 @@
 import s from "./Game.module.css";
 
-const Game = ({ question: { percentage, title, variants } }) => {
+const Game = ({ percentage, title, variants }) => {
   return (
     <>
       <div className={s.card}>
