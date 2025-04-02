@@ -5,7 +5,6 @@ const Options = ({ options }) => {
   return (
     <ul className={s.list}>
       {options.map((option) => {
-        console.log(option);
         return (
           <li key={option}>
             <button
