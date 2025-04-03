@@ -1,5 +1,5 @@
-import s from "./forbesList.module.css";
-import ForbesListItem from "../ForbesListItem/ForbesListItem";
+import s from './ForbesList.module.css';
+import ForbesListItem from '../ForbesListItem/ForbesListItem';
 
 const ForbesList = ({ forbeslist }) => {
   return (
