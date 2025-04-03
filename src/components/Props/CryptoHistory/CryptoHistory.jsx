@@ -1,5 +1,5 @@
-import { formatDate } from "../../helpers/format-date";
-import s from "./CryptoHistory.module.css";
+import { formatDate } from '../../../helpers/format-date';
+import s from './CryptoHistory.module.css';
 
 const CryptoHistory = ({ transactions }) => {
   return (
