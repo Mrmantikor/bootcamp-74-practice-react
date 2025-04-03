@@ -1,40 +1,24 @@
-import BlogCard from "./components/BlogCard/BlogCard";
-import Container from "./components/Container/Container";
-import CryptoHistory from "./components/CryptoHistory/CryptoHistory";
-import ForbesList from "./components/ForbesList/ForbesList";
-import Heading from "./components/Heading/Heading";
-import Section from "./components/Section/Section";
-import Statistics from "./components/Statistics/Statistics";
-import article from "./data/article.json";
-import stats from "./data/stats.json";
-import transactions from "./data/transactions.json";
-import forbeslist from "./data/forbeslist.json";
-import Options from "./components/Options/Options";
-import question from "./data/game.json";
-import Game from "./components/Game/Game";
-
-const options = ["one", "two", "three", "four", "five"];
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import State from './tabs/State/State';
+import Props from './tabs/Props/Props';
 
 function App() {
   return (
     <>
-      <Section>
-        <Container>
-          <Heading text="Blog Card" tag="h1" bottom variant="success" />
-          <BlogCard {...article} />
-          <Heading text="Statistics" bottom mTop variant="info" />
-          <Statistics stats={stats} text="Main Statistics" />
-          <Statistics stats={stats} />
-          <Heading text="Crypto History" bottom mTop variant="error" />
-          <CryptoHistory transactions={transactions} />
-          <Heading text="Forbes List" bottom mTop variant="info" />
-          <ForbesList forbeslist={forbeslist} />
-          <Heading text="Options" bottom mTop variant="info" />
-          <Options options={options} />
-          <Heading text="Game" bottom mTop variant="info" />
-          <Game {...question} />
-        </Container>
-      </Section>
+      <Tabs>
+        <TabList>
+          <Tab>State</Tab>
+          <Tab>Props</Tab>
+        </TabList>
+
+        <TabPanel>
+          <State />
+        </TabPanel>
+        <TabPanel>
+          <Props />
+        </TabPanel>
+      </Tabs>
     </>
   );
 }
