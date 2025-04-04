@@ -1,16 +1,17 @@
-import { useState } from 'react';
 import Options from '../../components/State/Options/Options';
 import DisplayResult from '../../components/State/DisplayResult/DisplayResult';
 import Heading from '../../components/Heading/Heading';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
+const initState = {
+  one: 0,
+  two: 0,
+  three: 0,
+  four: 0,
+  five: 0,
+};
 const State = () => {
-  const [points, setPoints] = useState({
-    one: 0,
-    two: 0,
-    three: 0,
-    four: 0,
-    five: 0,
-  });
+  const [points, setPoints] = useLocalStorage('points', initState);
 
   const handleClick = (key, value) => {
     setPoints({ ...points, [key]: points[key] + value });

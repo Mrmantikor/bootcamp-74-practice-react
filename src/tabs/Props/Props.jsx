@@ -11,7 +11,7 @@ import transactions from '../../data/transactions.json';
 import forbeslist from '../../data/forbeslist.json';
 
 import question from '../../data/game.json';
-import Game from '../../components/Game/Game';
+import Game from '../../components/Quiz/Game/Game';
 
 const Props = () => {
   return (

@@ -1,6 +1,6 @@
-import s from "./Game.module.css";
+import s from './Game.module.css';
 
-const Game = ({ percentage, title, variants }) => {
+const Game = ({ percentage, title, variants, handleClick }) => {
   return (
     <>
       <div className={s.card}>
@@ -8,8 +8,8 @@ const Game = ({ percentage, title, variants }) => {
       </div>
       <h1 className={s.title}>{title}</h1>
       <ul>
-        {variants.map((item) => (
-          <li key={item} className={s.item}>
+        {variants.map((item, index) => (
+          <li key={item} className={s.item} onClick={() => handleClick(index)}>
             {item}
           </li>
         ))}
