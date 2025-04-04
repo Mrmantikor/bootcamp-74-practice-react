@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Gameplay from '../../components/Dice/Gameplay/Gameplay';
+import Gameplay from '../../components/Dice/GamePlay/GamePlay';
 import StartGame from '../../components/Dice/StartGame/StartGame';
 import styles from './Dice.module.css';
 
