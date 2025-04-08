@@ -1,10 +1,9 @@
 import { nanoid } from 'nanoid';
-
-import Form from '../../components/Form/Form';
 import TodoList from '../../components/Todos/TodoList/TodoList';
 import Section from '../../components/Section/Section';
 import Container from '../../components/Container/Container';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { TodoForm } from '../../components/Todos/TodoForm/TodoForm';
 
 function Todos() {
   const [todos, setTodos] = useLocalStorage('TODOS', []);
@@ -26,7 +25,7 @@ function Todos() {
     <>
       <Section>
         <Container>
-          <Form onSubmit={addTodo} />
+          <TodoForm onSubmit={addTodo} />
           <TodoList todos={todos} deleteTodo={deleteTodo} />
         </Container>
       </Section>
