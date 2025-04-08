@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import TodoList from '../../components/Todos/TodoList/TodoList';
 import Section from '../../components/Section/Section';
 import Container from '../../components/Container/Container';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { TodoForm } from '../../components/Todos/TodoForm/TodoForm';
+import EditForm from '../../components/Todos/EditForm/EditForm.jsx';
+
 
 function Todos() {
   const [todos, setTodos] = useLocalStorage('TODOS', []);
+  const [currentTodo, setCurrentTodo] = useState(null )
 
   const addTodo = value => {
     setTodos([
@@ -21,12 +25,25 @@ function Todos() {
     setTodos(todos.filter(item => item.id !== todoId));
   };
 
+  const setTodo = (todo) =>{
+    setCurrentTodo(todo)
+  }
+
+  const updateTodo = (text) => {
+    setTodos(todos.map(item => item.id === currentTodo.id ? {... currentTodo, text} : item))
+    cancelUpdate()
+  }
+
+  const cancelUpdate = () => {
+    setCurrentTodo(null)
+  }
+
   return (
     <>
       <Section>
         <Container>
-          <TodoForm onSubmit={addTodo} />
-          <TodoList todos={todos} deleteTodo={deleteTodo} />
+          {currentTodo? <EditForm initialValue = {currentTodo.text} updateTodo={updateTodo} cancelUpdate={cancelUpdate}/> : <TodoForm onSubmit={addTodo} />}
+          <TodoList todos={todos} deleteTodo={deleteTodo} setTodo={setTodo} isEditing={Boolean(currentTodo)}/>
         </Container>
       </Section>
     </>
