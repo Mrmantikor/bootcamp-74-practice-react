@@ -37,7 +37,6 @@ function Todos() {
   const cancelUpdate = () => {
     setCurrentTodo(null)
   }
-
   return (
     <>
       <Section>
