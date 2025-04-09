@@ -1,31 +1,48 @@
-import { Field, Form, Formik } from 'formik';
-
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { toast } from 'react-toastify';
 import Container from '../Container/Container';
-import s from './RegisterForm.module.css';
-import { usePasswordToggle } from '../../hooks/usePasswordToggle';
 import ToggleIcon from '../ToggleIcon/ToggleIcon';
+import { usePasswordToggle } from '../../hooks/usePasswordToggle';
+import { validationRegisterSchema } from '../../validation/auth.js';
+import s from './RegisterForm.module.css';
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = usePasswordToggle(['pass1', 'pass2']);
 
+  const initialValues = {
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  }
+
+  const handleSubmit = (values, actions) =>{
+    console.log(values)
+    toast('You registered successfully')
+    actions.resetForm()
+  }
   return (
     <Container className={s.flex}>
       <div className={s.box}>
         <h3 className={s.header}>Registration</h3>
-        <Formik>
+        <Formik initialValues={initialValues} validationSchema={validationRegisterSchema} onSubmit={handleSubmit}>
           <Form className={s.formWrapper}>
             <div className={s.fieldBox}>
-              <Field className={s.input} placeholder="Enter your name" />
+              <Field type='text' className={s.input} placeholder="Enter your name" name='name'/>
+              <ErrorMessage name='name' component='div' className={s.error}/>
             </div>
             <div className={s.fieldBox}>
-              <Field className={s.input} placeholder="Enter your email" />
+              <Field type='email' className={s.input} placeholder="Enter your email"  name='email'/>
+              <ErrorMessage name='email' component='div' className={s.error}/>
             </div>
             <div className={s.fieldBox}>
               <Field
                 className={s.input}
                 placeholder="Enter your password"
+                name='password'
                 type={showPassword.pass1 ? 'text' : 'password'}
               />
+              <ErrorMessage name='password' component='div' className={s.error}/>
               <ToggleIcon
                 onClick={() => setShowPassword('pass1')}
                 showPassword={showPassword.pass1}
@@ -35,8 +52,10 @@ const RegisterForm = () => {
               <Field
                 className={s.input}
                 placeholder="Confirm your password"
+                name='confirmPassword'
                 type={showPassword.pass2 ? 'text' : 'password'}
               />
+              <ErrorMessage name='confirmPassword' component='div' className={s.error}/>
               <ToggleIcon
                 onClick={() => setShowPassword('pass2')}
                 showPassword={showPassword.pass2}

@@ -6,12 +6,14 @@ import Quiz from './tabs/Quiz/Quiz';
 import Dice from './tabs/Dice/Dice';
 import Todos from './tabs/Todos/Todos';
 import Register from './tabs/Register/Register';
+import Login from './tabs/Login/Login.jsx';
 
 function App() {
   return (
     <>
       <Tabs>
         <TabList>
+          <Tab>Login</Tab>
           <Tab>Register</Tab>
           <Tab>Todos</Tab>
           <Tab>Dice</Tab>
@@ -20,6 +22,9 @@ function App() {
           <Tab>Props</Tab>
         </TabList>
 
+        <TabPanel>
+          <Login />
+        </TabPanel>
         <TabPanel>
           <Register />
         </TabPanel>
