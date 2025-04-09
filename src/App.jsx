@@ -5,19 +5,24 @@ import Props from './tabs/Props/Props';
 import Quiz from './tabs/Quiz/Quiz';
 import Dice from './tabs/Dice/Dice';
 import Todos from './tabs/Todos/Todos';
+import Register from './tabs/Register/Register';
 
 function App() {
   return (
     <>
       <Tabs>
         <TabList>
+          <Tab>Register</Tab>
           <Tab>Todos</Tab>
           <Tab>Dice</Tab>
           <Tab>Quiz</Tab>
           <Tab>State</Tab>
           <Tab>Props</Tab>
         </TabList>
-        
+
+        <TabPanel>
+          <Register />
+        </TabPanel>
         <TabPanel>
           <Todos />
         </TabPanel>
