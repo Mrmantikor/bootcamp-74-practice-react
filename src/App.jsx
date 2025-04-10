@@ -7,12 +7,14 @@ import Dice from './tabs/Dice/Dice';
 import Todos from './tabs/Todos/Todos';
 import Register from './tabs/Register/Register';
 import Login from './tabs/Login/Login.jsx';
+import Photos from './tabs/photos/Photos.jsx';
 
 function App() {
   return (
     <>
       <Tabs>
         <TabList>
+          <Tab>Photos</Tab>
           <Tab>Login</Tab>
           <Tab>Register</Tab>
           <Tab>Todos</Tab>
@@ -22,6 +24,9 @@ function App() {
           <Tab>Props</Tab>
         </TabList>
 
+        <TabPanel>
+          <Photos />
+        </TabPanel>
         <TabPanel>
           <Login />
         </TabPanel>
