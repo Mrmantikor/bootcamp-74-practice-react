@@ -8,12 +8,14 @@ import Todos from './tabs/Todos/Todos';
 import Register from './tabs/Register/Register';
 import Login from './tabs/Login/Login.jsx';
 import Photos from './tabs/Photos/Photos.jsx';
+import MemoryGame from './tabs/MemoryGame/MemoryGame.jsx';
 
 function App() {
   return (
     <>
       <Tabs>
         <TabList>
+          <Tab>Memory Game</Tab>
           <Tab>Photos</Tab>
           <Tab>Login</Tab>
           <Tab>Register</Tab>
@@ -24,6 +26,9 @@ function App() {
           <Tab>Props</Tab>
         </TabList>
 
+        <TabPanel>
+          <MemoryGame />
+        </TabPanel>
         <TabPanel>
           <Photos />
         </TabPanel>
