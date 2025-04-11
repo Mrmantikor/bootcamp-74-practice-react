@@ -3,7 +3,7 @@ import Container from '../../components/Container/Container';
 import Form from '../../components/Form/Form';
 import Section from '../../components/Section/Section';
 import { getPhotos } from '../../service/pexelsAPI';
-import ImagesList from '../../components/Images/ImagesList/imagesList';
+import ImagesList from '../../components/Images/ImagesList/ImagesList';
 import Loader from '../../components/Loader/Loader';
 import Heading from '../../components/Heading/Heading';
 
