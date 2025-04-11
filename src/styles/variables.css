@@ -22,4 +22,11 @@
 
   /*animation*/
   --animation-cubicBezier: 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+
+  /* memory game */
+  --dark-primary: #082f49;
+  --light-primary: #f0f9ff;
+  --light-secondary: #cbd5e1;
+  --accent: #fde68a;
+  --btn-disabled: #a8a29e;
 }
