@@ -7,7 +7,7 @@ import Dice from './tabs/Dice/Dice';
 import Todos from './tabs/Todos/Todos';
 import Register from './tabs/Register/Register';
 import Login from './tabs/Login/Login.jsx';
-import Photos from './tabs/photos/Photos.jsx';
+import Photos from './tabs/Photos/Photos.jsx';
 
 function App() {
   return (
