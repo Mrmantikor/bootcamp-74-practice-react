@@ -6,7 +6,7 @@ import Dice from './pages/Dice/Dice';
 import Todos from './pages/Todos/Todos';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login.jsx';
-import Photos from './pages/photos/Photos.jsx';
+import Photos from './pages/Photos/Photos.jsx';
 import Home from './pages/Home/Home.jsx';
 import Header from './components/Header/Header.jsx';
 import Cocktails from './pages/Cocktails/Cocktails.jsx';
