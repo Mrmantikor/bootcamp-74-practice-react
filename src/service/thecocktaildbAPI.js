@@ -40,3 +40,17 @@ export const getCocktailDetails = async cocktailID => {
     dateModified,
   };
 };
+
+export const getCocktailsByQuery = async (query) => {
+  const { data } = await instance.get(`search.php?s=${query}`);
+
+  return data.drinks? data.drinks.map(({ idDrink, strDrink, strDrinkThumb, strGlass }) => {
+    return { idDrink, strDrink, strDrinkThumb, strGlass };
+  }) : []
+};
+
+export const getFilteredCocktailsByAlcoholic = async (type) => {
+  const { data } = await instance.get(`filter.php?a=${type}`);
+
+  return data.drinks
+};
