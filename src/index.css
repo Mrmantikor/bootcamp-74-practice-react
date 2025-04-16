@@ -29,3 +29,6 @@ button {
 a {
   text-decoration: none;
 }
+body {
+  background: var(--color-white);
+}

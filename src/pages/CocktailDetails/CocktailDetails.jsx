@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getCocktailDetails } from '../../service/thecocktaildbAPI';
 import Section from '../../components/Section/Section';
 import Container from '../../components/Container/Container';
 import CocktailInfo from '../../components/Cocktails/CocktailInfo/CocktailInfo';
 import Loader from '../../components/Loader/Loader';
-import s from './CocktailDetails.module.css'
+import s from './CocktailDetails.module.css';
 
 const CocktailDetails = () => {
   const { cocktailID } = useParams();
@@ -13,8 +13,7 @@ const CocktailDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const location = useLocation()
-  const goBackLink = useRef(location.state)
+  const location = useLocation();
 
   useEffect(() => {
     const getData = async () => {
@@ -30,12 +29,25 @@ const CocktailDetails = () => {
     };
     getData();
   }, [cocktailID]);
+
+  const goBackLink = location?.state?.from || location?.state || '/cocktails';
+
   return (
     <Section>
       <Container>
-        <Link to={goBackLink.current || '/cocktails'} className={s.link} >Go Back</Link>
+        <Link to={goBackLink} className={s.link}>
+          Go Back
+        </Link>
         {cocktail && <CocktailInfo {...cocktail} />}
-        <Link to={`another/${cocktail?.strAlcoholic}`}> Show another cocktails</Link>
+        <Link
+          to={`another/${cocktail?.strAlcoholic}`}
+          state={{
+            from: location?.state,
+          }}
+        >
+          {' '}
+          Show another cocktails
+        </Link>
         {error && (
           <Heading
             text={`Something went wrong! ${error}`}
@@ -44,7 +56,7 @@ const CocktailDetails = () => {
           />
         )}
         {isLoading && <Loader />}
-        <Outlet/>
+        <Outlet />
       </Container>
     </Section>
   );
