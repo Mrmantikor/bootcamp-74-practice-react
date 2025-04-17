@@ -1,3 +1,4 @@
+
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 const Home = lazy(()=> import('./pages/Home/Home.jsx'));
@@ -16,6 +17,7 @@ const SearchCocktails = lazy(()=> import( './pages/SearchCocktails/SearchCocktai
 const AnotherCocktails = lazy(()=> import( './components/Cocktails/AnotherCocktails/AnotherCocktails.jsx'));
 
 import Loader from './components/Loader/Loader.jsx';
+
 
 function App() {
   return (
