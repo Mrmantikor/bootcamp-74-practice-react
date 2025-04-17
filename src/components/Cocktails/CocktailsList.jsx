@@ -3,12 +3,9 @@ import Grid from '../Grid/Grid';
 import GridItem from '../GridItem/GridItem';
 
 const CocktailsList = ({ cocktails }) => {
-
-  const location = useLocation()
-  console.log(location)
+  const location = useLocation();
 
   return (
-
     <Grid>
       {cocktails.map(cocktail => (
         <GridItem key={cocktail.idDrink}>

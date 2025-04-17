@@ -19,7 +19,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink className={addActive} to={'/searchcocktails'}>
-              Search Cocktails
+              Search
             </NavLink>
           </li>
           <li>
