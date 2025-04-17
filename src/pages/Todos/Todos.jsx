@@ -1,64 +1,26 @@
-import { useState } from 'react';
-import { nanoid } from 'nanoid';
 import TodoList from '../../components/Todos/TodoList/TodoList.jsx';
 import Section from '../../components/Section/Section.jsx';
 import Container from '../../components/Container/Container.jsx';
-import { useLocalStorage } from '../../hooks/useLocalStorage.js';
 import { TodoForm } from '../../components/Todos/TodoForm/TodoForm.jsx';
 import EditForm from '../../components/Todos/EditForm/EditForm.jsx';
+import { useSelector } from 'react-redux';
+import { selectCurrentTodo, selectTodos } from '../../redux/selectors.js';
+import Filter from '../../components/Todos/Filter/Filter.jsx';
 
 function Todos() {
-  const [todos, setTodos] = useLocalStorage('TODOS', []);
-  const [currentTodo, setCurrentTodo] = useState(null);
-
-  const addTodo = value => {
-    setTodos([
-      ...todos,
-      {
-        text: value,
-        id: nanoid(),
-      },
-    ]);
-  };
-  const deleteTodo = todoId => {
-    setTodos(todos.filter(item => item.id !== todoId));
-  };
-
-  const setTodo = todo => {
-    setCurrentTodo(todo);
-  };
-
-  const updateTodo = text => {
-    setTodos(
-      todos.map(item =>
-        item.id === currentTodo.id ? { ...currentTodo, text } : item
-      )
-    );
-    cancelUpdate();
-  };
-
-  const cancelUpdate = () => {
-    setCurrentTodo(null);
-  };
+  const currentTodo = useSelector(selectCurrentTodo);
+  const todos = useSelector(selectTodos);
   return (
     <>
       <Section>
         <Container>
           {currentTodo ? (
-            <EditForm
-              initialValue={currentTodo.text}
-              updateTodo={updateTodo}
-              cancelUpdate={cancelUpdate}
-            />
+            <EditForm initialValue={currentTodo.text} />
           ) : (
-            <TodoForm onSubmit={addTodo} />
+            <TodoForm />
           )}
-          <TodoList
-            todos={todos}
-            deleteTodo={deleteTodo}
-            setTodo={setTodo}
-            isEditing={Boolean(currentTodo)}
-          />
+          {todos.length > 0 && <Filter />}
+          <TodoList />
         </Container>
       </Section>
     </>
