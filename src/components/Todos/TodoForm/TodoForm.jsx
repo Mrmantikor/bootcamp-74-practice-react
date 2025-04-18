@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import s from './TodoForm.module.css';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../../redux/action';
+import { addTodo } from '../../../redux/todoSlice.js';
 const validationSchema = Yup.object({
   text: Yup.string()
     .min(2, 'Too short')
