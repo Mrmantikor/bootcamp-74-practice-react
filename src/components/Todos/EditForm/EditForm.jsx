@@ -4,7 +4,8 @@ import { RiSaveLine } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
 import s from './EditForm.module.css';
 import { useDispatch } from 'react-redux';
-import { setCurrentTodo, updateTodo } from '../../../redux/action';
+import { updateTodo, setCurrentTodo } from '../../../redux/todoSlice.js';
+
 
 const validationSchema = Yup.object({
   text: Yup.string()
