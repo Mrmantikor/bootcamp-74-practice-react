@@ -8,7 +8,7 @@ const Dice = lazy(() => import('./pages/Dice/Dice'));
 const Todos = lazy(() => import('./pages/Todos/Todos'));
 const Register = lazy(() => import('./pages/Register/Register'));
 const Login = lazy(() => import('./pages/Login/Login.jsx'));
-const Photos = lazy(() => import('./pages/Test/Photos.jsx'));
+const Photos = lazy(() => import('./pages/Photos/Photos.jsx'));
 import Header from './components/Header/Header.jsx';
 const Cocktails = lazy(() => import('./pages/Cocktails/Cocktails.jsx'));
 const CocktailDetails = lazy(() =>
