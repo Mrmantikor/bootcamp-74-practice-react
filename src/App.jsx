@@ -1,4 +1,3 @@
-
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 const Home = lazy(() => import('./pages/Home/Home.jsx'));
@@ -9,7 +8,7 @@ const Dice = lazy(() => import('./pages/Dice/Dice'));
 const Todos = lazy(() => import('./pages/Todos/Todos'));
 const Register = lazy(() => import('./pages/Register/Register'));
 const Login = lazy(() => import('./pages/Login/Login.jsx'));
-const Photos = lazy(() => import('./pages/Photos/Photos.jsx'));
+const Photos = lazy(() => import('./pages/Test/Photos.jsx'));
 import Header from './components/Header/Header.jsx';
 const Cocktails = lazy(() => import('./pages/Cocktails/Cocktails.jsx'));
 const CocktailDetails = lazy(() =>
@@ -24,7 +23,6 @@ const AnotherCocktails = lazy(() =>
 
 import Loader from './components/Loader/Loader.jsx';
 import ToggleTheme from './components/ToggleTheme/ToggleTheme.jsx';
-
 
 function App() {
   return (
