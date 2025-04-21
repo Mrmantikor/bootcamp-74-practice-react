@@ -1,22 +1,21 @@
 import Options from '../../components/State/Options/Options';
 import DisplayResult from '../../components/State/DisplayResult/DisplayResult';
 import Heading from '../../components/Heading/Heading';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
 import Section from '../../components/Section/Section.jsx';
 import Container from '../../components/Container/Container.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPoint, resetPoints} from '../../redux/pointsSlice.js';
-import { selectPoints } from '../../redux/selectors.js';
+import { addPoint, resetPoints } from '../../redux/points/pointsSlice.js';
+import { selectPoints } from '../../redux/points/selectors.js';
 
 const State = () => {
-  const points = useSelector(selectPoints)
-  const dispatch = useDispatch()
+  const points = useSelector(selectPoints);
+  const dispatch = useDispatch();
 
   const handleClick = (key, value) => {
-    dispatch(addPoint({key, value}))
+    dispatch(addPoint({ key, value }));
   };
   const handleReset = () => {
-    dispatch(resetPoints())
+    dispatch(resetPoints());
   };
 
   const totalPoints = Object.values(points).reduce(

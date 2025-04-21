@@ -4,8 +4,8 @@ import { RiSaveLine } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
 import s from './EditForm.module.css';
 import { useDispatch } from 'react-redux';
-import { updateTodo, setCurrentTodo } from '../../../redux/todoSlice.js';
-
+import { setCurrentTodo } from '../../../redux/todos/todoSlice';
+import { updateTodo } from '../../../redux/todos/operations';
 
 const validationSchema = Yup.object({
   text: Yup.string()
@@ -14,10 +14,10 @@ const validationSchema = Yup.object({
     .required('This field is required'),
 });
 
-const EditForm = ({ initialValue }) => {
+const EditForm = ({ text, id }) => {
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
-    dispatch(updateTodo(values.text));
+    dispatch(updateTodo({ text: values.text, id }));
     actions.resetForm();
   };
 
@@ -25,7 +25,7 @@ const EditForm = ({ initialValue }) => {
     <Formik
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
-      initialValues={{ text: initialValue }}
+      initialValues={{ text }}
     >
       <Form className={s.form}>
         <Field

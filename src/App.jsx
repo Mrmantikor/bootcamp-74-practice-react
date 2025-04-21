@@ -1,4 +1,3 @@
-
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 const Home = lazy(() => import('./pages/Home/Home.jsx'));
@@ -24,7 +23,6 @@ const AnotherCocktails = lazy(() =>
 
 import Loader from './components/Loader/Loader.jsx';
 import ToggleTheme from './components/ToggleTheme/ToggleTheme.jsx';
-
 
 function App() {
   return (

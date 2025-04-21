@@ -1,8 +1,9 @@
 import { RiDeleteBinLine, RiEdit2Line } from 'react-icons/ri';
 import s from './TodoListItem.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTodo, setCurrentTodo } from '../../../redux/todoSlice.js';
-import { selectCurrentTodo } from '../../../redux/selectors';
+import { setCurrentTodo } from '../../../redux/todos/todoSlice';
+import { selectCurrentTodo } from '../../../redux/todos/selectors';
+import { deleteTodo } from '../../../redux/todos/operations';
 
 function TodoListItem({ text, counter, id }) {
   const dispatch = useDispatch();

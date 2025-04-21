@@ -5,18 +5,18 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
 import { ThemeProvider } from './ThemeContext/ThemeContext.jsx';
-import { persistor, store } from './redux/store.js';
+import { store } from './redux/store.js';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+// import { PersistGate } from 'redux-persist/integration/react';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <ThemeProvider>
         <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <App />
-          </PersistGate>
+          {/* <PersistGate loading={null} persistor={persistor}> */}
+          <App />
+          {/* </PersistGate> */}
         </Provider>
       </ThemeProvider>
       <ToastContainer />
