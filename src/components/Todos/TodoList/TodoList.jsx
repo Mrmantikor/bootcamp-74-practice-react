@@ -2,18 +2,13 @@ import { useSelector } from 'react-redux';
 import Grid from '../../Grid/Grid';
 import GridItem from '../../GridItem/GridItem';
 import TodoListItem from '../TodoListItem/TodoListItem';
-import { selectTodos } from '../../../redux/todos/selectors';
-import { selectFilterTodo } from '../../../redux/filter/selectors';
+import { selectFilteredTodos } from '../../../redux/todos/selectors';
 
 function TodoList() {
-  const todos = useSelector(selectTodos);
-  const filter = useSelector(selectFilterTodo);
-  const filteredTodos = todos.filter(todo =>
-    todo.text.toLowerCase().includes(filter.toLowerCase())
-  );
+  const todos = useSelector(selectFilteredTodos);
   return (
     <Grid>
-      {filteredTodos.map((item, index) => (
+      {todos.map((item, index) => (
         <GridItem key={item.id}>
           <TodoListItem text={item.text} counter={index + 1} id={item.id} />
         </GridItem>

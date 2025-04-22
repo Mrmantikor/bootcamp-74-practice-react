@@ -1,5 +1,6 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 const Home = lazy(() => import('./pages/Home/Home.jsx'));
 const State = lazy(() => import('./pages/State/State'));
 const Props = lazy(() => import('./pages/Props/Props'));
@@ -24,7 +25,29 @@ const AnotherCocktails = lazy(() =>
 import Loader from './components/Loader/Loader.jsx';
 import ToggleTheme from './components/ToggleTheme/ToggleTheme.jsx';
 
+import { fetchBaseCurrency } from './redux/currency/operation.js';
+import { setBaseCurrency } from './redux/currency/currencySlice.js';
+
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+
+    function success(pos) {
+      dispatch(fetchBaseCurrency(pos.coords));
+    }
+
+    function error() {
+      dispatch(setBaseCurrency('USD'));
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }, [dispatch]);
+
   return (
     <>
       <Header />
