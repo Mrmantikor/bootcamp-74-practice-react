@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import s from './Header.module.css';
 import { useSelector } from 'react-redux';
 import { selectBaseCurrency } from '../../redux/currency/selectors';
+import SelectBaseCurrency from '../Exchange/SelectBaseCurrency/SelectBaseCurrency';
 
 const Header = () => {
   const addActive = ({ isActive }) => (isActive ? s.active : s.link);
@@ -65,9 +66,18 @@ const Header = () => {
               Props
             </NavLink>
           </li>
+          <li>
+            <NavLink className={addActive} to={'/exchange'}>
+              Exchange
+            </NavLink>
+          </li>
         </ul>
       </nav>
-      {baseCurrency && <p>Your base currency: {baseCurrency} </p>}
+      {baseCurrency && (
+        <div>
+          <p>Your base currency:</p> <SelectBaseCurrency />
+        </div>
+      )}
     </header>
   );
 };

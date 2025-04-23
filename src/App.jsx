@@ -10,6 +10,7 @@ const Todos = lazy(() => import('./pages/Todos/Todos'));
 const Register = lazy(() => import('./pages/Register/Register'));
 const Login = lazy(() => import('./pages/Login/Login.jsx'));
 const Photos = lazy(() => import('./pages/Photos/Photos.jsx'));
+const Exchange = lazy(() => import('./pages/Exchange/Exchange.jsx'));
 import Header from './components/Header/Header.jsx';
 const Cocktails = lazy(() => import('./pages/Cocktails/Cocktails.jsx'));
 const CocktailDetails = lazy(() =>
@@ -68,6 +69,7 @@ function App() {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/state" element={<State />} />
           <Route path="/props" element={<Props />} />
+          <Route path="/exchange" element={<Exchange />} />
         </Routes>
       </Suspense>
     </>
