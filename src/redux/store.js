@@ -14,6 +14,7 @@ import { filterReducer } from './filter/filterSlice';
 import { todoReducer } from './todos/todoSlice';
 import { pointsReducer } from './points/pointsSlice';
 import { currencyReducer } from './currency/currencySlice';
+import { authorizationReducer } from './authorization/authSlice';
 
 const persistCurrencyConfig = {
   key: 'currency',
@@ -34,6 +35,7 @@ export const store = configureStore({
     filter: filterReducer,
     points: pointsReducer,
     currency: persistedCurrencyReducer,
+    authorization: authorizationReducer,
   },
 
   middleware: getDefaultMiddleware =>

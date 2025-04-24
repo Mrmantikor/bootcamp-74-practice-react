@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addTodo, deleteTodo, fetchTodos, updateTodo } from './operations';
+import { logoutThunk } from '../authorization/authOperations';
 
 const initialState = {
   items: [],
@@ -32,6 +33,9 @@ const slice = createSlice({
           todo.id === action.payload.id ? action.payload : todo
         );
         state.currentTodo = null;
+      })
+      .addCase(logoutThunk.fulfilled, state => {
+        state.items = [];
       })
       .addMatcher(
         action => action.type.endsWith('pending'),

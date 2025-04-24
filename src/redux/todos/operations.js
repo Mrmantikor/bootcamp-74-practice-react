@@ -1,15 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-const instance = axios.create({
-  baseURL: 'https://68062693ca467c15be6b5a7b.mockapi.io',
-});
+import { authInstance } from '../authorization/authOperations';
 
 export const fetchTodos = createAsyncThunk(
   'todos/fetchTodos',
   async (_, thunkAPI) => {
     try {
-      const { data } = await instance.get('/todos');
+      const { data } = await authInstance.get('/tasks');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -21,7 +17,7 @@ export const addTodo = createAsyncThunk(
   'todos/addTodo',
   async (text, thunkAPI) => {
     try {
-      const { data } = await instance.post('/todos', { text });
+      const { data } = await authInstance.post('/tasks', { text });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -33,7 +29,7 @@ export const deleteTodo = createAsyncThunk(
   'todos/deleteTodo',
   async (id, thunkAPI) => {
     try {
-      const { data } = await instance.delete(`/todos/${id}`);
+      const { data } = await authInstance.delete(`/tasks/${id}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -45,7 +41,7 @@ export const updateTodo = createAsyncThunk(
   'todos/updateTodo',
   async ({ id, text }, thunkAPI) => {
     try {
-      const { data } = await instance.put(`/todos/${id}`, { text });
+      const { data } = await authInstance.put(`/tasks/${id}`, { text });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
