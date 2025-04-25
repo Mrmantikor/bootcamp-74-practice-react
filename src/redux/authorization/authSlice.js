@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginThuk, logoutThunk, registerThunk } from './authOperations';
+import {
+  loginThuk,
+  logoutThunk,
+  refreshUserThuk,
+  registerThunk,
+} from './authOperations';
 
 const initialState = {
   user: {
@@ -51,6 +56,17 @@ const slice = createSlice({
       })
       .addCase(logoutThunk.rejected, state => {
         state.isLoading = false;
+      })
+      .addCase(refreshUserThuk.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUserThuk.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUserThuk.rejected, state => {
+        state.isRefreshing = false;
       }),
 });
 

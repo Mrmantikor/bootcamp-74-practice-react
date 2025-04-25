@@ -14,36 +14,3 @@
   align-items: center;
   gap: 20px;
 }
-
-.link {
-  color: var(--color-light);
-  font-size: var(--font-medium);
-  font-weight: 700;
-
-  background: var(--color-link);
-
-  text-transform: uppercase;
-
-  transition-property: color, background, transform;
-  transition-duration: 0.2s;
-  transition-timing-function: var(--animation-cubicBezier);
-
-  transform: scale(0.9);
-
-  padding: 6px 12px;
-  border-radius: 4px;
-}
-
-.active {
-  composes: link;
-  transform: scale(1);
-  background-color: #ffffff33;
-  color: #fff;
-  box-shadow: var(--shadow-link);
-}
-
-.link:hover,
-.link:focus {
-  color: var(--color-white);
-  background: var(--color-gray);
-}

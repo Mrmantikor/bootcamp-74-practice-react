@@ -5,9 +5,11 @@ import { selectBaseCurrency } from '../../redux/currency/selectors';
 import SelectBaseCurrency from '../Exchange/SelectBaseCurrency/SelectBaseCurrency';
 import { selectIsLoggedIn } from '../../redux/authorization/authSelectors';
 import Usermenu from '../Usermenu/Usermenu';
+import AuthNav from '../AuthNav/AuthNav';
+import Navigation from '../Navigation/Navigation';
+import CustomNavLink from '../CustomNavLink/CustomNavLink';
 
 const Header = () => {
-  const addActive = ({ isActive }) => (isActive ? s.active : s.link);
   const baseCurrency = useSelector(selectBaseCurrency);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -16,73 +18,9 @@ const Header = () => {
       <nav>
         <ul className={s.list}>
           <li>
-            <NavLink className={addActive} to={'/'}>
-              Home
-            </NavLink>
+            <CustomNavLink to={'/'}>Home</CustomNavLink>
           </li>
-          {!isLoggedIn ? (
-            <>
-              <li>
-                <NavLink className={addActive} to={'/login'}>
-                  Login
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={addActive} to={'/register'}>
-                  Register
-                </NavLink>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <NavLink className={addActive} to={'/cocktails'}>
-                  Cocktails
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={addActive} to={'/searchcocktails'}>
-                  Search
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={addActive} to={'/photos'}>
-                  Photos
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink className={addActive} to={'/todos'}>
-                  Todos
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={addActive} to={'/dice'}>
-                  Dice
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={addActive} to={'/quiz'}>
-                  Quiz
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={addActive} to={'/state'}>
-                  State
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={addActive} to={'/props'}>
-                  Props
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={addActive} to={'/exchange'}>
-                  Exchange
-                </NavLink>
-              </li>
-            </>
-          )}
+          {!isLoggedIn ? <AuthNav /> : <Navigation />}
         </ul>
       </nav>
       {isLoggedIn && <Usermenu />}
