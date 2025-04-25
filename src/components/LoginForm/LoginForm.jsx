@@ -50,6 +50,7 @@ const LoginForm = () => {
             </div>
             <div className={s.fieldBox}>
               <Field
+                autoComplete="current_password"
                 className={s.input}
                 placeholder="Enter your password"
                 name="password"

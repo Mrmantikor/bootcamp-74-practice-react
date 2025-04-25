@@ -51,5 +51,23 @@ export const logoutThunk = createAsyncThunk(
     }
   }
 );
+
+export const refreshUserThuk = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkApi) => {
+    const state = thunkApi.getState();
+    const persistedToken = state.authorization.token;
+    if (!persistedToken) {
+      return thunkApi.rejectWithValue('No token');
+    }
+    try {
+      setAuthHeader(persistedToken);
+      const { data } = await authInstance.get('/users/me');
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 //Beorgeoes@gmail.com
 //Bara5rf$

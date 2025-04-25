@@ -29,13 +29,26 @@ const persistedCurrencyReducer = persistReducer(
   currencyReducer
 );
 
+const persistAuthConfig = {
+  key: 'token',
+  version: 1,
+  storage,
+  whitelist: ['token'],
+  // blacklist: ['filter', 'todos'],
+};
+
+const persistedAuthReducer = persistReducer(
+  persistAuthConfig,
+  authorizationReducer
+);
+
 export const store = configureStore({
   reducer: {
     todos: todoReducer,
     filter: filterReducer,
     points: pointsReducer,
     currency: persistedCurrencyReducer,
-    authorization: authorizationReducer,
+    authorization: persistedAuthReducer,
   },
 
   middleware: getDefaultMiddleware =>
